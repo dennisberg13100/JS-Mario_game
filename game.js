@@ -18,7 +18,7 @@ function draw(currentTime) {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    mario.wait();
+    mario.run();
     // Repeate
     requestAnimationFrame(draw);
 }
