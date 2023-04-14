@@ -17,8 +17,10 @@ function draw(currentTime) {
     frame.lastTime = currentTime;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+    mario.turnLeft();
+    mario.turnRight();
     mario.run();
+    
     // Repeate
     requestAnimationFrame(draw);
 }

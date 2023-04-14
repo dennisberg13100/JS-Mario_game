@@ -12,7 +12,6 @@ const mario = {
     },
     direction: "right",
     runingStep: 0,
-
     wait: function() {
         let col = (this.direction === "right") ? 0 : 1;
         ctx.drawImage(
@@ -27,7 +26,6 @@ const mario = {
             this.sprite.height // height
         );
     },
-
     run: function() { 
         ctx.drawImage(
             this.img, // sprite image
@@ -43,7 +41,6 @@ const mario = {
         
         (this.runingStep < 1) ? this.runingStep++ : this.runingStep = 0
     },
-    turnLeft: () => {this.sprite.x.column = 0},
-    turnRight: () => {this.sprite.x.column = 1},
-
+    turnLeft: function() {this.sprite.column = 1},
+    turnRight: function() {this.sprite.column = 0},
 }
