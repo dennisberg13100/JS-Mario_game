@@ -8,39 +8,37 @@ const mario = {
     sprite: {
         width: 97,
         height: 143,
-        column: 0
+        line: 0
     },
-    direction: "right",
     runingStep: 0,
     wait: function() {
-        let col = (this.direction === "right") ? 0 : 1;
         ctx.drawImage(
-            this.img, // sprite image
-            0, // sprite row
-            this.sprite.height * col, // sprite col
-            this.sprite.width, // sprite width
-            this.sprite.height,  // sprite height
-            this.x, // horizontal position
-            450 - this.y, // vertical position
-            this.sprite.width, // width
-            this.sprite.height // height
+            this.img,                                   // Imagem
+            0,                                          // Coluna do Sprite
+            this.sprite.height * this.sprite.line,      // Linha do Sprite
+            this.sprite.width,                          // Largura do Sprite
+            this.sprite.height,                         // Altura do Sprite
+            this.x,                                     // Posição horizontal
+            450 - this.y,                               // Posição vertical
+            this.sprite.width,                          // Largura
+            this.sprite.height                          // Altura
         );
     },
+    turnLeft: function() {this.sprite.line = 1},
+    turnRight: function() {this.sprite.line = 0},
     run: function() { 
-        ctx.drawImage(
-            this.img, // sprite image
-            this.sprite.width * this.runingStep, // sprite row
-            this.sprite.height * this.sprite.column, // sprite col
-            this.sprite.width, // sprite width
-            this.sprite.height,  // sprite height
-            this.x, // horizontal position
-            450 - this.y, // vertical position
-            this.sprite.width, // width
-            this.sprite.height // height
+        ctx.drawImage(    
+            this.img,                                   // Imagem
+            this.sprite.width * this.runingStep,        // Coluna do Sprite
+            this.sprite.height * this.sprite.line,      // Linha do Sprite
+            this.sprite.width,                          // Largura do Sprite
+            this.sprite.height,                         // Altura do Sprite
+            this.x,                                     // Posição horizontal
+            450 - this.y,                               // Posição vertical
+            this.sprite.width,                          // Largura
+            this.sprite.height                          // Altura 
         );
         
         (this.runingStep < 1) ? this.runingStep++ : this.runingStep = 0
     },
-    turnLeft: function() {this.sprite.column = 1},
-    turnRight: function() {this.sprite.column = 0},
 }
