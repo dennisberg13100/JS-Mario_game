@@ -7,11 +7,11 @@ document.onkeyup = function(event) {
 const keyupAction = {
     ArrowLeft: () => {
         mario.turnLeft();
-        mario.state = 'wait';
+        (mario.state == 'run') ? mario.state = 'wait': null;
     },
     ArrowRight: () => {
         mario.turnRight();
-        mario.state = 'wait';
+        (mario.state == 'run') ? mario.state = 'wait': null;
     },
     ArrowUp: () => {
     }
