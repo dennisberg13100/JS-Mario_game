@@ -2,7 +2,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 const frame = {
-    fps: 10,
+    fps: 60,
     lastTime: 0
 };
 
@@ -14,11 +14,15 @@ function draw(currentTime) {
         return;
     }
     frame.lastTime = currentTime;
+    // Ajusta o tamanho da tela 
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+
     // Limpando a tela
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    mario.turnLeft();
-    mario.turnRight();
-    mario.wait();
+    
+    mario[mario.state]();
+
     requestAnimationFrame(draw);
 }
 
